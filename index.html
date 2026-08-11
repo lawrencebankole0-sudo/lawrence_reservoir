@@ -1,0 +1,2913 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lawrence Reservoir | Luxury Restaurant & Food Delivery</title>
+
+<style>
+
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#fffaf2;
+    color:#28150c;
+    line-height:1.6;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+
+:root{
+    --gold:#f5c542;
+    --dark:#241209;
+    --brown:#6e3518;
+    --cream:#fff5e5;
+    --light:#fffaf2;
+    --muted:#76665c;
+    --green:#16823d;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:16px 6%;
+
+    background:rgba(35,17,8,.97);
+
+    box-shadow:
+        0 5px 25px rgba(0,0,0,.25);
+}
+
+.logo{
+    font-size:27px;
+    font-weight:900;
+    color:var(--gold);
+    white-space:nowrap;
+}
+
+.logo span{
+    color:#fff;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--gold);
+}
+
+.cart-button{
+    border:none;
+    background:var(--gold);
+    color:#241209;
+    padding:11px 18px;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:720px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:60px;
+
+    padding:90px 7%;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(20,8,3,.95),
+            rgba(20,8,3,.65),
+            rgba(20,8,3,.35)
+        ),
+        url("https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=2000&q=95");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content{
+    max-width:720px;
+}
+
+.hero-label{
+    color:var(--gold);
+    font-size:14px;
+    letter-spacing:5px;
+    font-weight:bold;
+}
+
+.hero h1{
+    font-size:clamp(50px,7vw,88px);
+    line-height:1.02;
+    margin:20px 0;
+}
+
+.hero h1 span{
+    color:var(--gold);
+}
+
+.hero-description{
+    font-size:19px;
+    max-width:650px;
+    color:#f6eee8;
+}
+
+.hero-buttons{
+    margin-top:30px;
+}
+
+.primary-btn,
+.secondary-btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:15px 27px;
+    border-radius:30px;
+    margin:5px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.primary-btn{
+    background:var(--gold);
+    color:#28150c;
+}
+
+.primary-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(245,197,66,.35);
+}
+
+.secondary-btn{
+    border:2px solid white;
+    color:white;
+}
+
+.secondary-btn:hover{
+    background:white;
+    color:#28150c;
+}
+
+.hero-card{
+    width:400px;
+    min-height:400px;
+
+    flex-shrink:0;
+
+    border-radius:50%;
+
+    border:9px solid var(--gold);
+
+    background:
+        url("https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=95");
+
+    background-size:cover;
+    background-position:center;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.55);
+}
+
+/* =========================
+   QUICK INFO
+========================= */
+
+.quick-info{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    background:white;
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+}
+
+.quick-box{
+    padding:28px 20px;
+    text-align:center;
+    border-right:1px solid #eee0cd;
+}
+
+.quick-box:last-child{
+    border-right:none;
+}
+
+.quick-box strong{
+    display:block;
+    color:#8c5d00;
+    font-size:18px;
+}
+
+.quick-box span{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* =========================
+   SECTION HEADINGS
+========================= */
+
+section{
+    padding:85px 7%;
+}
+
+.section-heading{
+    text-align:center;
+    max-width:800px;
+    margin:0 auto 45px;
+}
+
+.section-heading small{
+    color:#a46d00;
+    font-weight:bold;
+    letter-spacing:4px;
+}
+
+.section-heading h2{
+    font-size:45px;
+    line-height:1.15;
+    margin:12px 0;
+}
+
+.section-heading p{
+    color:var(--muted);
+}
+
+/* =========================
+   WELCOME
+========================= */
+
+.welcome{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:55px;
+    align-items:center;
+}
+
+.welcome-images{
+    position:relative;
+}
+
+.welcome-main{
+    width:90%;
+    height:480px;
+    object-fit:cover;
+    border-radius:25px;
+}
+
+.welcome-small{
+    position:absolute;
+    right:0;
+    bottom:-35px;
+    width:220px;
+    height:220px;
+    object-fit:cover;
+    border-radius:20px;
+    border:8px solid var(--light);
+    box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
+
+.welcome-text h2{
+    font-size:45px;
+    margin-bottom:20px;
+}
+
+.welcome-text p{
+    color:var(--muted);
+    margin-bottom:18px;
+}
+
+.check-list{
+    list-style:none;
+}
+
+.check-list li{
+    margin:10px 0;
+    font-weight:bold;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.features{
+    background:var(--cream);
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+}
+
+.feature{
+    background:white;
+    padding:32px 22px;
+    text-align:center;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(80,40,10,.08);
+}
+
+.feature-icon{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.feature h3{
+    margin-bottom:10px;
+}
+
+.feature p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* =========================
+   SPECIAL BANNER
+========================= */
+
+.special{
+    min-height:430px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            rgba(55,22,5,.84),
+            rgba(55,22,5,.84)
+        ),
+        url("https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=2000&q=95");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+.special-content{
+    max-width:750px;
+}
+
+.special h2{
+    font-size:52px;
+}
+
+.special .discount{
+    color:var(--gold);
+    font-size:75px;
+    font-weight:900;
+    margin:10px;
+}
+
+.special p{
+    color:#f4e9df;
+}
+
+/* =========================
+   MENU
+========================= */
+
+.menu{
+    background:#fffdf9;
+}
+
+.search-box{
+    max-width:650px;
+    margin:0 auto 25px;
+}
+
+.search-box input{
+    width:100%;
+    padding:17px 22px;
+    border:2px solid #e5cf99;
+    border-radius:35px;
+    font-size:16px;
+    outline:none;
+}
+
+.categories{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:40px;
+}
+
+.category{
+    border:1px solid #d9bd70;
+    background:white;
+    padding:10px 17px;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+.category.active,
+.category:hover{
+    background:var(--gold);
+}
+
+/* =========================
+   FOOD GRID
+========================= */
+
+.food-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:27px;
+}
+
+.food-card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid #efdfc6;
+    box-shadow:0 10px 30px rgba(50,25,10,.08);
+    transition:.3s;
+}
+
+.food-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 40px rgba(50,25,10,.15);
+}
+
+.food-card img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+}
+
+.food-info{
+    padding:21px;
+}
+
+.food-info h3{
+    font-size:20px;
+}
+
+.food-info p{
+    color:var(--muted);
+    font-size:14px;
+    min-height:48px;
+    margin-top:7px;
+}
+
+.food-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-top:18px;
+}
+
+.price{
+    color:#a66d00;
+    font-size:19px;
+    font-weight:bold;
+}
+
+.add-button{
+    border:none;
+    background:var(--dark);
+    color:white;
+    padding:10px 17px;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.add-button:hover{
+    background:var(--gold);
+    color:var(--dark);
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery{
+    background:var(--cream);
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.gallery-grid img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:15px;
+    transition:.4s;
+}
+
+.gallery-grid img:hover{
+    transform:scale(1.03);
+}
+
+/* =========================
+   CART
+========================= */
+
+.cart-section{
+    background:var(--dark);
+    color:white;
+}
+
+.cart-box{
+    max-width:900px;
+    margin:auto;
+    background:#1a0c06;
+    padding:30px;
+    border-radius:22px;
+}
+
+.cart-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    padding:17px 0;
+    border-bottom:1px solid #43281b;
+}
+
+.cart-item small{
+    color:var(--gold);
+}
+
+.quantity button{
+    width:31px;
+    height:31px;
+    border:none;
+    border-radius:50%;
+    background:var(--gold);
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.quantity span{
+    display:inline-block;
+    width:38px;
+    text-align:center;
+}
+
+.total{
+    text-align:right;
+    margin-top:25px;
+    color:var(--gold);
+    font-size:27px;
+    font-weight:bold;
+}
+
+/* =========================
+   CHECKOUT
+========================= */
+
+.checkout{
+    background:#fff5e7;
+}
+
+.checkout-box{
+    max-width:750px;
+    margin:auto;
+    background:white;
+    padding:35px;
+    border-radius:22px;
+    box-shadow:0 15px 40px rgba(60,30,10,.1);
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+    width:100%;
+    padding:14px;
+    border:1px solid #decda9;
+    border-radius:9px;
+    outline:none;
+}
+
+.form-group textarea{
+    min-height:100px;
+    resize:vertical;
+}
+
+.place-order{
+    width:100%;
+    padding:17px;
+    border:none;
+    border-radius:30px;
+    background:var(--green);
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.place-order:hover{
+    background:#0e6730;
+}
+
+.success{
+    display:none;
+    max-width:750px;
+    margin:25px auto;
+    padding:25px;
+    background:#e9f8ed;
+    border:2px solid #3c9c57;
+    color:#174d27;
+    border-radius:20px;
+    text-align:center;
+}
+
+.order-number{
+    display:inline-block;
+    background:var(--green);
+    color:white;
+    padding:12px 22px;
+    margin:15px;
+    border-radius:25px;
+    font-weight:bold;
+}
+
+/* =========================
+   CHEF
+========================= */
+
+.chef{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:55px;
+    align-items:center;
+}
+
+.chef img{
+    width:100%;
+    height:500px;
+    object-fit:cover;
+    border-radius:25px;
+}
+
+.chef h2{
+    font-size:44px;
+    margin-bottom:20px;
+}
+
+.chef p{
+    color:var(--muted);
+    margin-bottom:20px;
+}
+
+/* =========================
+   REVIEWS
+========================= */
+
+.reviews{
+    background:white;
+}
+
+.review-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.review{
+    padding:30px;
+    border-radius:20px;
+    background:#fff5e6;
+}
+
+.stars{
+    color:#e9b600;
+    font-size:23px;
+}
+
+.review p{
+    color:var(--muted);
+    margin:15px 0;
+}
+
+/* =========================
+   FAQ
+========================= */
+
+.faq{
+    background:var(--cream);
+}
+
+.faq-grid{
+    max-width:850px;
+    margin:auto;
+}
+
+details{
+    background:white;
+    margin:12px 0;
+    padding:20px;
+    border-radius:12px;
+    cursor:pointer;
+}
+
+summary{
+    font-weight:bold;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.contact-card{
+    background:#fff4e2;
+    padding:30px;
+    border-radius:20px;
+}
+
+.contact-card h3{
+    color:#9d6800;
+    margin-bottom:10px;
+}
+
+.contact-card p{
+    color:var(--muted);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#1c0d06;
+    color:#cdbdb2;
+    text-align:center;
+    padding:45px 20px;
+}
+
+.footer-logo{
+    color:var(--gold);
+    font-size:30px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.footer-links{
+    margin:20px 0;
+}
+
+.footer-links a{
+    color:white;
+    text-decoration:none;
+    margin:0 10px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:950px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero-card{
+        width:300px;
+        height:300px;
+    }
+
+    .quick-info{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .feature-grid,
+    .food-grid,
+    .review-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .welcome,
+    .chef{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    section{
+        padding:65px 5%;
+    }
+
+    .hero{
+        min-height:650px;
+        padding:70px 5%;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .hero-card{
+        width:230px;
+        height:230px;
+    }
+
+    .quick-info,
+    .feature-grid,
+    .food-grid,
+    .review-grid,
+    .contact{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .gallery-grid img{
+        height:180px;
+    }
+
+    .section-heading h2{
+        font-size:36px;
+    }
+
+    .special h2{
+        font-size:36px;
+    }
+
+    .special .discount{
+        font-size:55px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+```
+<div class="logo">
+    Lawrence <span>Reservoir</span>
+</div>
+
+<ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+</ul>
+
+<button class="cart-button" onclick="goToCart()">
+    🛒 Cart (<span id="cartCount">0</span>)
+</button>
+```
+
+</nav>
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+```
+<div class="hero-content">
+
+    <div class="hero-label">
+        WELCOME TO LAWRENCE RESERVOIR
+    </div>
+
+    <h1>
+        Taste The
+        <span>Luxury.</span>
+    </h1>
+
+    <p class="hero-description">
+
+        Discover a world of irresistible flavours at
+        Lawrence Reservoir. From freshly baked pizza
+        and loaded shawarma to premium burgers,
+        Nigerian favourites, seafood, pasta and
+        unforgettable desserts.
+
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="#menu" class="primary-btn">
+            🍽️ Order Food
+        </a>
+
+        <a href="#about" class="secondary-btn">
+            Discover Us
+        </a>
+
+    </div>
+
+</div>
+
+
+<div class="hero-card"></div>
+```
+
+</section>
+
+<!-- =========================
+     QUICK INFO
+========================= -->
+
+<div class="quick-info">
+
+```
+<div class="quick-box">
+    <strong>🍕 Fresh Food</strong>
+    <span>Prepared with care</span>
+</div>
+
+<div class="quick-box">
+    <strong>🚗 Delivery</strong>
+    <span>Easy ordering</span>
+</div>
+
+<div class="quick-box">
+    <strong>⭐ Premium</strong>
+    <span>Quality ingredients</span>
+</div>
+
+<div class="quick-box">
+    <strong>📱 WhatsApp</strong>
+    <span>Fast ordering</span>
+</div>
+```
+
+</div>
+
+<!-- =========================
+     WELCOME
+========================= -->
+
+<section class="welcome" id="about">
+
+```
+<div class="welcome-images">
+
+    <img
+        class="welcome-main"
+        src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=95"
+        alt="Luxury restaurant food">
+
+    <img
+        class="welcome-small"
+        src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=700&q=95"
+        alt="Fresh pizza">
+
+</div>
+
+
+<div class="welcome-text">
+
+    <div class="section-heading" style="text-align:left;margin:0 0 20px;">
+
+        <small>OUR STORY</small>
+
+        <h2>More Than Just Food.</h2>
+
+    </div>
+
+    <p>
+
+        Lawrence Reservoir was created for people who
+        believe that food should be more than something
+        you simply eat.
+
+    </p>
+
+    <p>
+
+        We bring together exciting flavours, beautiful
+        presentation and a warm atmosphere to create
+        meals that people remember.
+
+    </p>
+
+    <ul class="check-list">
+
+        <li>✓ Carefully selected ingredients</li>
+        <li>✓ Generous portions</li>
+        <li>✓ Beautiful presentation</li>
+        <li>✓ Friendly service</li>
+        <li>✓ Easy WhatsApp ordering</li>
+
+    </ul>
+
+</div>
+```
+
+</section>
+
+<!-- =========================
+     FEATURES
+========================= -->
+
+<section class="features">
+
+```
+<div class="section-heading">
+
+    <small>WHY CHOOSE US?</small>
+
+    <h2>Made For Food Lovers ❤️</h2>
+
+    <p>
+        Everything we do is designed around giving
+        our customers an enjoyable food experience.
+    </p>
+
+</div>
+
+
+<div class="feature-grid">
+
+    <div class="feature">
+        <div class="feature-icon">👨‍🍳</div>
+        <h3>Expert Preparation</h3>
+        <p>
+            Delicious meals prepared with attention
+            to flavour and presentation.
+        </p>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">🥗</div>
+        <h3>Quality Ingredients</h3>
+        <p>
+            We aim to use quality ingredients across
+            our menu.
+        </p>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">🚗</div>
+        <h3>Easy Ordering</h3>
+        <p>
+            Build your order online and continue
+            directly to WhatsApp.
+        </p>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">❤️</div>
+        <h3>Customer First</h3>
+        <p>
+            Your satisfaction is at the heart
+            of Lawrence Reservoir.
+        </p>
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- =========================
+     SPECIAL OFFER
+========================= -->
+
+<section class="special">
+
+```
+<div class="special-content">
+
+    <h2>Tonight Deserves Something Special</h2>
+
+    <div class="discount">
+        20% OFF
+    </div>
+
+    <p>
+
+        Treat yourself, your family or your friends
+        to a delicious Lawrence Reservoir experience.
+
+        Check today's menu and find something
+        irresistible.
+
+    </p>
+
+    <br>
+
+    <a href="#menu" class="primary-btn">
+        🍕 Explore Today's Menu
+    </a>
+
+</div>
+```
+
+</section>
+
+<!-- =========================
+     MENU
+========================= -->
+
+<section class="menu" id="menu">
+
+```
+<div class="section-heading">
+
+    <small>OUR MENU</small>
+
+    <h2>Something For Everyone 🍽️</h2>
+
+    <p>
+        Select your favourite meals and add them
+        to your basket.
+    </p>
+
+</div>
+
+
+<div class="search-box">
+
+    <input
+        type="text"
+        id="searchBox"
+        placeholder="🔍 Search for pizza, shawarma, burger..."
+        onkeyup="searchFood()">
+
+</div>
+
+
+<div class="categories">
+
+    <button class="category active"
+    onclick="filterFood('all',this)">
+        All
+    </button>
+
+    <button class="category"
+    onclick="filterFood('pizza',this)">
+        🍕 Pizza
+    </button>
+
+    <button class="category"
+    onclick="filterFood('shawarma',this)">
+        🌯 Shawarma
+    </button>
+
+    <button class="category"
+    onclick="filterFood('burger',this)">
+        🍔 Burgers
+    </button>
+
+    <button class="category"
+    onclick="filterFood('chicken',this)">
+        🍗 Chicken
+    </button>
+
+    <button class="category"
+    onclick="filterFood('nigerian',this)">
+        🍚 Nigerian
+    </button>
+
+    <button class="category"
+    onclick="filterFood('pasta',this)">
+        🍝 Pasta
+    </button>
+
+    <button class="category"
+    onclick="filterFood('seafood',this)">
+        🦐 Seafood
+    </button>
+
+    <button class="category"
+    onclick="filterFood('dessert',this)">
+        🍰 Desserts
+    </button>
+
+    <button class="category"
+    onclick="filterFood('drink',this)">
+        🥤 Drinks
+    </button>
+
+</div>
+
+
+<div class="food-grid">
+
+
+    <!-- PIZZA -->
+
+    <div class="food-card" data-category="pizza">
+
+        <img
+        src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1000&q=95"
+        alt="Chicken pizza">
+
+        <div class="food-info">
+
+            <h3>Royal Chicken Pizza</h3>
+
+            <p>
+                Chicken, mozzarella, peppers and
+                our signature sauce.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">₦22,000</span>
+
+                <button class="add-button"
+                onclick="addToCart('Royal Chicken Pizza',22000)">
+                    Add +
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="food-card" data-category="pizza">
+
+        <img
+        src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1000&q=95"
+        alt="Beef supreme pizza">
+
+        <div class="food-info">
+
+            <h3>Beef Supreme Pizza</h3>
+
+            <p>
+                Premium beef, cheese, peppers,
+                onions and herbs.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">₦25,000</span>
+
+                <button class="add-button"
+                onclick="addToCart('Beef Supreme Pizza',25000)">
+                    Add +
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="food-card" data-category="pizza">
+
+        <img
+        src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=1000&q=95"
+        alt="Seafood pizza">
+
+        <div class="food-info">
+
+            <h3>Luxury Seafood Pizza</h3>
+
+            <p>
+                Premium seafood, mozzarella and
+                fresh toppings.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">₦30,000</span>
+
+                <button class="add-button"
+                onclick="addToCart('Luxury Seafood Pizza',30000)">
+                    Add +
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SHAWARMA -->
+
+    <div class="food-card" data-category="shawarma">
+
+        <img
+        src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=1000&q=95"
+        alt="Chicken shawarma">
+
+        <div class="food-info">
+
+            <h3>Chicken Shawarma</h3>
+
+            <p>
+                Juicy chicken, vegetables and
+                creamy signature sauce.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">₦8,500</span>
+
+                <button class="add-button"
+                onclick="addToCart('Chicken Shawarma',8500)">
+                    Add +
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="food-card" data-category="shawarma">
+
+        <img
+        src="https://images.unsplash.com/photo-1561651823-34feb02250e4?auto=format&fit=crop&w=1000&q=95"
+        alt="Beef shawarma">
+
+        <div class="food-info">
+
+            <h3>Luxury Beef Shawarma</h3>
+
+            <p>
+                Premium beef, cheese, vegetables
+                and special sauce.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">₦12,000</span>
+
+                <button class="add-button"
+                onclick="addToCart('Luxury Beef Shawarma',12000)">
+                    Add +
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- BURGER -->
+
+    <div class="food-card" data-category="burger">
+
+        <img
+        src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1000&q=95"
+        alt="Signature burger">
+
+        <div class="food-info">
+
+            <h3>Reservoir Signature Burger</h3>
+
+            <p>
+                Juicy beef, cheese, lettuce,
+                tomato and special sauce.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">₦15,000</span>
+
+                <button class="add-button"
+                onclick="addToCart('Reservoir Signature Burger',15000)">
+                    Add +
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="food-card" data-category="burger">
+
+        <img
+        src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=95"
+        alt="Double cheese burger">
+
+        <div class="food-info">
+
+            <h3>Double Cheese Burger</h3>
+
+            <p>
+                Two juicy patties with double
+                cheese and signature sauce.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">₦19,000</span>
+
+                <button class="add-button"
+                onclick="addToCart('Double Cheese Burger',19000)">
+                    Add +
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CHICKEN -->
+
+    <div class="food-card" data-category="chicken">
+
+        <img
+        src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=1000&q=95"
+        alt="Grilled chicken">
+
+        <div class="food-info">
+
+            <h3>Grilled Chicken Platter</h3>
+
+            <p>
+                Tender grilled chicken served
+                with delicious sides.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">₦20,000</span>
+
+                <button class="add-button"
+                onclick="addToCart('Grilled Chicken Platter',20000)">
+                    Add +
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="food-card" data-category="chicken">
+
+        <img
+        src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&w=1000&q=95"
+        alt="Chicken wings">
+
+        <div class="food-info">
+
+            <h3>Spicy Chicken Wings</h3>
+
+            <p>
+                Crispy chicken wings with
+                our special spicy glaze.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">₦14,000</span>
+
+                <button class="add-button"
+                onclick="addToCart('Spicy Chicken Wings',14000)">
+                    Add +
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- NIGERIAN FOOD -->
+
+    <div class="food-card" data-category="nigerian">
+
+        <img
+        src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?auto=format&fit=crop&w=1000&q=95"
+        alt="Jollof rice">
+
+        <div class="food-info">
+
+            <h3>Jollof Rice & Grilled Chicken</h3>
+
+            <p>
+                Rich Nigerian jollof rice served
+                with tender grilled chicken.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">₦16,000</span>
+
+                <button class="add-button"
+                onclick="addToCart('Jollof Rice & Grilled Chicken',16000)">
+                    Add +
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="food-card" data-category="nigerian">
+
+        <img
+        src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=1000&q=95"
+        alt="Fried rice">
+
+        <div class="food-info">
+
+            <h3>Special Fried Rice</h3>
+
+            <p>
+                Fried rice with vegetables,
+                chicken and prawns.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">₦18,000</span>
+
+                <button class="add-button"
+                onclick="addToCart('Special Fried Rice',18000)">
+                    Add +
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="food-card" data-category="nigerian">
+
+        <img
+        src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=95"
+        alt="Suya platter">
+
+        <div class="food-info">
+
+            <h3>Premium Suya Platter</h3>
+
+            <p>
+                Spicy grilled beef suya with
+                onions and peppers.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">₦22,000</span>
+
+                <button class="add-button"
+                onclick="addToCart('Premium Suya Platter',22000)">
+                    Add +
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PASTA -->
+
+    <div class="food-card" data-category="pasta">
+
+        <img
+        src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1000&q=95"
+        alt="Creamy pasta">
+
+        <div class="food-info">
+
+            <h3>Creamy Alfredo Pasta</h3>
+
+            <p>
+                Creamy pasta with chicken,
+                herbs and parmesan.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">₦17,000</span>
+
+                <button class="add-button"
+                onclick="addToCart('Creamy Alfredo Pasta',17000)">
+                    Add +
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="food-card" data-category="pasta">
+
+        <img
+        src="https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?auto=format&fit=crop&w=1000&q=95"
+        alt="Penne pasta">
+
+        <div class="food-info">
+
+            <h3>Chicken Penne Pasta</h3>
+
+            <p>
+                Chicken penne with rich
+                creamy tomato sauce.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">₦18,000</span>
+
+                <button class="add-button"
+                onclick="addToCart('Chicken Penne Pasta',18000)">
+                    Add +
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SEAFOOD -->
+
+    <div class="food-card" data-category="seafood">
+
+        <img
+        src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1000&q=95"
+        alt="Seafood platter">
+
+        <div class="food-info">
+
+            <h3>Luxury Seafood Platter</h3>
+
+            <p>
+                A premium selection of seafood
+                prepared for a special meal.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">₦40,000</span>
+
+                <button class="add-button"
+                onclick="addToCart('Luxury Seafood Platter',40000)">
+                    Add +
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="food-card" data-category="seafood">
+
+        <img
+        src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=1000&q=95"
+        alt="Seafood">
+
+        <div class="food-info">
+
+            <h3>Garlic Prawns</h3>
+
+            <p>
+                Juicy prawns cooked with
+                garlic, herbs and butter.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">₦25,000</span>
+
+                <button class="add-button"
+                onclick="addToCart('Garlic Prawns',25000)">
+                    Add +
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- DESSERT -->
+
+    <div class="food-card" data-category="dessert">
+
+        <img
+        src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=95"
+        alt="Chocolate cake">
+
+        <div class="food-info">
+
+            <h3>Chocolate Celebration Cake</h3>
+
+            <p>
+                Rich chocolate cake with
+                a luxurious finish.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">₦7,000</span>
+
+                <button class="add-button"
+                onclick="addToCart('Chocolate Celebration Cake',7000)">
+                    Add +
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="food-card" data-category="dessert">
+
+        <img
+        src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1000&q=95"
+        alt="Cheesecake">
+
+        <div class="food-info">
+
+            <h3>Luxury Cheesecake</h3>
+
+            <p>
+                Creamy cheesecake with
+                a delicious topping.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">₦8,500</span>
+
+                <button class="add-button"
+                onclick="addToCart('Luxury Cheesecake',8500)">
+                    Add +
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- DRINKS -->
+
+    <div class="food-card" data-category="drink">
+
+        <img
+        src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=1000&q=95"
+        alt="Milkshake">
+
+        <div class="food-info">
+
+            <h3>Premium Milkshake</h3>
+
+            <p>
+                Thick, creamy and refreshing.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">₦7,500</span>
+
+                <button class="add-button"
+                onclick="addToCart('Premium Milkshake',7500)">
+                    Add +
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="food-card" data-category="drink">
+
+        <img
+        src="https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=1000&q=95"
+        alt="Fresh juice">
+
+        <div class="food-info">
+
+            <h3>Fresh Fruit Juice</h3>
+
+            <p>
+                Freshly prepared, colourful
+                and refreshing.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">₦5,000</span>
+
+                <button class="add-button"
+                onclick="addToCart('Fresh Fruit Juice',5000)">
+                    Add +
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- =========================
+     GALLERY
+========================= -->
+
+<section class="gallery" id="gallery">
+
+```
+<div class="section-heading">
+
+    <small>FOOD & ATMOSPHERE</small>
+
+    <h2>A Taste Of Lawrence Reservoir 📸</h2>
+
+    <p>
+        A glimpse of the kind of delicious experience
+        waiting for you.
+    </p>
+
+</div>
+
+
+<div class="gallery-grid">
+
+    <img
+    src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1000&q=95"
+    alt="Pizza">
+
+    <img
+    src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=1000&q=95"
+    alt="Shawarma">
+
+    <img
+    src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1000&q=95"
+    alt="Burger">
+
+    <img
+    src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=1000&q=95"
+    alt="Chicken">
+
+    <img
+    src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?auto=format&fit=crop&w=1000&q=95"
+    alt="Jollof rice">
+
+    <img
+    src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1000&q=95"
+    alt="Pasta">
+
+    <img
+    src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1000&q=95"
+    alt="Seafood">
+
+    <img
+    src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=95"
+    alt="Cake">
+
+</div>
+```
+
+</section>
+
+<!-- =========================
+     CART
+========================= -->
+
+<section class="cart-section" id="cartSection">
+
+```
+<div class="section-heading">
+
+    <small style="color:#f5c542;">
+        YOUR ORDER
+    </small>
+
+    <h2 style="color:white;">
+        Your Food Basket 🛒
+    </h2>
+
+    <p style="color:#cdbdb2;">
+        Review your order before checking out.
+    </p>
+
+</div>
+
+
+<div class="cart-box">
+
+    <div id="cartItems">
+
+        <p style="text-align:center;color:#cdbdb2;">
+            Your basket is empty.
+            Add something delicious! 😋
+        </p>
+
+    </div>
+
+    <div class="total">
+
+        Total:
+        ₦<span id="cartTotal">0</span>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- =========================
+     CHECKOUT
+========================= -->
+
+<section class="checkout">
+
+```
+<div class="section-heading">
+
+    <small>CHECKOUT</small>
+
+    <h2>Ready To Order? 📱</h2>
+
+    <p>
+        Enter your information and continue to
+        WhatsApp to send your order.
+    </p>
+
+</div>
+
+
+<form class="checkout-box"
+      onsubmit="placeOrder(event)">
+
+    <div class="form-group">
+
+        <label>Full Name</label>
+
+        <input
+            id="customerName"
+            type="text"
+            placeholder="Enter your full name"
+            required>
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>Phone Number</label>
+
+        <input
+            id="customerPhone"
+            type="tel"
+            placeholder="Enter your phone number"
+            required>
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>Order Type</label>
+
+        <select id="orderType">
+
+            <option value="Delivery">
+                🚗 Delivery
+            </option>
+
+            <option value="Pickup">
+                🛍️ Pickup
+            </option>
+
+            <option value="Dine In">
+                🍽️ Dine In
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>Delivery Address</label>
+
+        <textarea
+            id="customerAddress"
+            placeholder="Where should we deliver your food?"></textarea>
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>Special Instructions</label>
+
+        <textarea
+            id="customerNote"
+            placeholder="Extra sauce, no onions, special request..."></textarea>
+
+    </div>
+
+
+    <button
+        type="submit"
+        class="place-order">
+
+        💚 Place My Order & Open WhatsApp
+
+    </button>
+
+</form>
+
+
+<div class="success" id="success">
+
+    <h2>🎉 Your Order Is Ready!</h2>
+
+    <p>
+        Your order number is:
+    </p>
+
+    <div class="order-number">
+
+        <span id="orderNumber"></span>
+
+    </div>
+
+    <p>
+        WhatsApp is opening now.
+        Tap <strong>Send</strong> in WhatsApp
+        to complete the order.
+    </p>
+
+</div>
+```
+
+</section>
+
+<!-- =========================
+     CHEF SECTION
+========================= -->
+
+<section class="chef">
+
+```
+<img
+src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1200&q=95"
+alt="Professional chef">
+
+<div>
+
+    <div class="section-heading"
+         style="text-align:left;margin:0 0 20px;">
+
+        <small>THE LAWRENCE RESERVOIR KITCHEN</small>
+
+        <h2>Passion Goes Into Every Plate.</h2>
+
+    </div>
+
+    <p>
+        Behind every delicious meal is attention to
+        detail, creativity and a genuine love for food.
+    </p>
+
+    <p>
+        From the first ingredient to the final
+        presentation, we aim to create meals that
+        look as good as they taste.
+    </p>
+
+    <a href="#menu" class="primary-btn">
+        See Our Menu
+    </a>
+
+</div>
+```
+
+</section>
+
+<!-- =========================
+     REVIEWS
+========================= -->
+
+<section class="reviews" id="reviews">
+
+```
+<div class="section-heading">
+
+    <small>CUSTOMER LOVE</small>
+
+    <h2>What Our Customers Say ⭐</h2>
+
+    <p>
+        Great food is even better when shared.
+    </p>
+
+</div>
+
+
+<div class="review-grid">
+
+    <div class="review">
+
+        <div class="stars">
+            ★★★★★
+        </div>
+
+        <p>
+            "The pizza was incredible.
+            The toppings were generous and
+            everything tasted fresh."
+        </p>
+
+        <strong>— Daniel</strong>
+
+    </div>
+
+
+    <div class="review">
+
+        <div class="stars">
+            ★★★★★
+        </div>
+
+        <p>
+            "I ordered shawarma and a burger.
+            Everything arrived looking amazing."
+        </p>
+
+        <strong>— Sarah</strong>
+
+    </div>
+
+
+    <div class="review">
+
+        <div class="stars">
+            ★★★★★
+        </div>
+
+        <p>
+            "The ordering system is really easy.
+            I just selected my food and WhatsApp
+            opened automatically."
+        </p>
+
+        <strong>— Michael</strong>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- =========================
+     FAQ
+========================= -->
+
+<section class="faq">
+
+```
+<div class="section-heading">
+
+    <small>QUESTIONS?</small>
+
+    <h2>Frequently Asked Questions</h2>
+
+</div>
+
+
+<div class="faq-grid">
+
+    <details>
+
+        <summary>
+            How do I place an order?
+        </summary>
+
+        <p>
+            Select your food, add it to your basket,
+            enter your details and click the WhatsApp
+            order button.
+
+        </p>
+
+    </details>
+
+
+    <details>
+
+        <summary>
+            Will my order go to WhatsApp?
+        </summary>
+
+        <p>
+            Yes. The website creates an order message
+            containing your order details and opens
+            WhatsApp with the message ready to send.
+        </p>
+
+    </details>
+
+
+    <details>
+
+        <summary>
+            Will I receive an order number?
+        </summary>
+
+        <p>
+            Yes. The website automatically creates a
+            unique order number such as
+            LR-20260811-4821.
+        </p>
+
+    </details>
+
+
+    <details>
+
+        <summary>
+            Can I request special instructions?
+        </summary>
+
+        <p>
+            Yes. You can add instructions such as
+            extra sauce or other preferences in the
+            checkout form.
+        </p>
+
+    </details>
+
+
+    <details>
+
+        <summary>
+            Can I order for pickup?
+        </summary>
+
+        <p>
+            Yes. The checkout form allows customers
+            to select Delivery, Pickup or Dine In.
+        </p>
+
+    </details>
+
+</div>
+```
+
+</section>
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="contact" id="contact">
+
+```
+<div class="contact-card">
+
+    <h3>📱 WhatsApp</h3>
+
+    <p>
+        +234 813 700 4712
+    </p>
+
+</div>
+
+
+<div class="contact-card">
+
+    <h3>📧 Email</h3>
+
+    <p>
+        lawrencebankole0@gmail.com
+    </p>
+
+</div>
+
+
+<div class="contact-card">
+
+    <h3>🚗 Ordering</h3>
+
+    <p>
+        Online orders are prepared through our
+        WhatsApp ordering system.
+    </p>
+
+</div>
+
+
+<div class="contact-card">
+
+    <h3>🕐 Opening Hours</h3>
+
+    <p>
+        Monday – Thursday: 10 AM – 10 PM<br>
+        Friday – Saturday: 10 AM – 11 PM<br>
+        Sunday: 12 PM – 10 PM
+    </p>
+
+</div>
+```
+
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+```
+<div class="footer-logo">
+    Lawrence Reservoir 🍕
+</div>
+
+<p>
+    Luxury food. Beautiful moments.
+</p>
+
+<div class="footer-links">
+
+    <a href="#home">Home</a>
+    <a href="#menu">Menu</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+
+</div>
+
+<p>
+    📱 +234 813 700 4712
+    &nbsp; | &nbsp;
+    📧 lawrencebankole0@gmail.com
+</p>
+
+<br>
+
+<p>
+    © 2026 Lawrence Reservoir.
+    All Rights Reserved.
+</p>
+```
+
+</footer>
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+let cart = [];
+
+
+/* ADD FOOD */
+
+function addToCart(name,price){
+
+    const existing =
+        cart.find(item => item.name === name);
+
+    if(existing){
+
+        existing.quantity++;
+
+    }else{
+
+        cart.push({
+            name:name,
+            price:price,
+            quantity:1
+        });
+
+    }
+
+    updateCart();
+
+}
+
+
+/* UPDATE CART */
+
+function updateCart(){
+
+    const container =
+        document.getElementById("cartItems");
+
+    const totalElement =
+        document.getElementById("cartTotal");
+
+    const countElement =
+        document.getElementById("cartCount");
+
+    container.innerHTML="";
+
+    let total=0;
+    let count=0;
+
+
+    if(cart.length===0){
+
+        container.innerHTML=`
+            <p style="text-align:center;color:#cdbdb2;">
+                Your basket is empty.
+                Add something delicious! 😋
+            </p>
+        `;
+
+    }
+
+
+    cart.forEach((item,index)=>{
+
+        const itemTotal =
+            item.price * item.quantity;
+
+        total += itemTotal;
+
+        count += item.quantity;
+
+
+        container.innerHTML += `
+
+            <div class="cart-item">
+
+                <div>
+
+                    <strong>
+                        ${item.name}
+                    </strong>
+
+                    <br>
+
+                    <small>
+                        ₦${item.price.toLocaleString()}
+                        each
+                    </small>
+
+                </div>
+
+
+                <div class="quantity">
+
+                    <button
+                    onclick="changeQuantity(${index},-1)">
+                        −
+                    </button>
+
+                    <span>
+                        ${item.quantity}
+                    </span>
+
+                    <button
+                    onclick="changeQuantity(${index},1)">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+
+    totalElement.textContent =
+        total.toLocaleString();
+
+    countElement.textContent =
+        count;
+
+}
+
+
+/* CHANGE QUANTITY */
+
+function changeQuantity(index,amount){
+
+    cart[index].quantity += amount;
+
+    if(cart[index].quantity <= 0){
+
+        cart.splice(index,1);
+
+    }
+
+    updateCart();
+
+}
+
+
+/* GO TO CART */
+
+function goToCart(){
+
+    document
+        .getElementById("cartSection")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+/* CATEGORY FILTER */
+
+function filterFood(category,button){
+
+    document
+        .querySelectorAll(".category")
+        .forEach(btn =>
+            btn.classList.remove("active")
+        );
+
+    button.classList.add("active");
+
+
+    document
+        .querySelectorAll(".food-card")
+        .forEach(card=>{
+
+            if(
+                category === "all" ||
+                card.dataset.category === category
+            ){
+
+                card.style.display="block";
+
+            }else{
+
+                card.style.display="none";
+
+            }
+
+        });
+
+}
+
+
+/* SEARCH */
+
+function searchFood(){
+
+    const search =
+        document
+        .getElementById("searchBox")
+        .value
+        .toLowerCase();
+
+
+    document
+        .querySelectorAll(".food-card")
+        .forEach(card=>{
+
+            const text =
+                card.innerText.toLowerCase();
+
+            if(text.includes(search)){
+
+                card.style.display="block";
+
+            }else{
+
+                card.style.display="none";
+
+            }
+
+        });
+
+}
+
+
+/* ORDER NUMBER */
+
+function generateOrderNumber(){
+
+    const date = new Date();
+
+    const year =
+        date.getFullYear();
+
+    const month =
+        String(date.getMonth()+1)
+        .padStart(2,"0");
+
+    const day =
+        String(date.getDate())
+        .padStart(2,"0");
+
+    const random =
+        Math.floor(
+            1000 +
+            Math.random()*9000
+        );
+
+
+    return "LR-"+
+           year+
+           month+
+           day+
+           "-"+
+           random;
+
+}
+
+
+/* PLACE ORDER */
+
+function placeOrder(event){
+
+    event.preventDefault();
+
+
+    if(cart.length === 0){
+
+        alert(
+            "Your basket is empty! 😋\n\n"+
+            "Please add food before ordering."
+        );
+
+        return;
+
+    }
+
+
+    const name =
+        document
+        .getElementById("customerName")
+        .value.trim();
+
+
+    const phone =
+        document
+        .getElementById("customerPhone")
+        .value.trim();
+
+
+    const orderType =
+        document
+        .getElementById("orderType")
+        .value;
+
+
+    const address =
+        document
+        .getElementById("customerAddress")
+        .value.trim();
+
+
+    const note =
+        document
+        .getElementById("customerNote")
+        .value.trim();
+
+
+    const orderNumber =
+        generateOrderNumber();
+
+
+    let total=0;
+
+    let foodList="";
+
+
+    cart.forEach(item=>{
+
+        const itemTotal =
+            item.price *
+            item.quantity;
+
+        total += itemTotal;
+
+
+        foodList +=
+            "🍽️ "+
+            item.name+
+            " x "+
+            item.quantity+
+            " — ₦"+
+            itemTotal.toLocaleString()+
+            "\n";
+
+    });
+
+
+    let message =
+
+        "🍕 *LAWRENCE RESERVOIR ORDER* 🍕\n\n"+
+
+        "🔢 *Order Number:* "+
+        orderNumber+
+        "\n\n"+
+
+        "👤 *Customer:* "+
+        name+
+        "\n"+
+
+        "📞 *Phone:* "+
+        phone+
+        "\n"+
+
+        "📦 *Order Type:* "+
+        orderType+
+        "\n\n"+
+
+        "🛒 *ORDER ITEMS*\n"+
+        foodList+
+        "\n"+
+
+        "💰 *TOTAL: ₦"+
+        total.toLocaleString()+
+        "*\n\n";
+
+
+    if(address){
+
+        message +=
+            "📍 *Address:*\n"+
+            address+
+            "\n\n";
+
+    }
+
+
+    if(note){
+
+        message +=
+            "📝 *Special Instructions:*\n"+
+            note+
+            "\n\n";
+
+    }
+
+
+    message +=
+        "Thank you for choosing Lawrence Reservoir! ❤️";
+
+
+    /*
+
+        LAWRENCE RESERVOIR WHATSAPP
+        +234 813 700 4712
+
+    */
+
+    const restaurantWhatsApp =
+        "2348137004712";
+
+
+    const whatsappURL =
+        "https://wa.me/"+
+        restaurantWhatsApp+
+        "?text="+
+        encodeURIComponent(message);
+
+
+    document
+        .getElementById("orderNumber")
+        .textContent =
+        orderNumber;
+
+
+    document
+        .getElementById("success")
+        .style.display =
+        "block";
+
+
+    setTimeout(function(){
+
+        window.location.href =
+        whatsappURL;
+
+    },800);
+
+}
+
+</script>
+
+</body>
+</html>
